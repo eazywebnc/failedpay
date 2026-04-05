@@ -1,8 +1,10 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import {
   ArrowRight,
   TrendingUp,
@@ -17,8 +19,10 @@ import {
   ArrowUpRight,
 } from 'lucide-react'
 
+gsap.registerPlugin(ScrollTrigger)
+
 /* ------------------------------------------------------------------ */
-/*  Animated Counter (spring-based)                                    */
+/*  Animated Counter (spring-based + GSAP ScrollTrigger re-trigger)    */
 /* ------------------------------------------------------------------ */
 
 function AnimatedCounter({
@@ -32,6 +36,43 @@ function AnimatedCounter({
 }) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true })
+  const [displayValue, setDisplayValue] = useState(0)
+  const counterObj = useRef({ val: 0 })
+
+  useEffect(() => {
+    if (!ref.current) return
+
+    const trigger = ScrollTrigger.create({
+      trigger: ref.current,
+      start: 'top 85%',
+      onEnter: () => {
+        counterObj.current.val = 0
+        gsap.to(counterObj.current, {
+          val: end,
+          duration: 1.5,
+          ease: 'power2.out',
+          onUpdate: () => {
+            setDisplayValue(Math.round(counterObj.current.val))
+          },
+        })
+      },
+      onEnterBack: () => {
+        counterObj.current.val = 0
+        gsap.to(counterObj.current, {
+          val: end,
+          duration: 1.5,
+          ease: 'power2.out',
+          onUpdate: () => {
+            setDisplayValue(Math.round(counterObj.current.val))
+          },
+        })
+      },
+    })
+
+    return () => {
+      trigger.kill()
+    }
+  }, [end])
 
   return (
     <motion.span ref={ref}>
@@ -41,7 +82,7 @@ function AnimatedCounter({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          {end.toLocaleString()}
+          {displayValue.toLocaleString()}
         </motion.span>
       ) : (
         '0'
@@ -284,13 +325,17 @@ function RecoveryMockup() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Floating badges                                                    */
+/*  Floating badges (with GSAP parallax refs)                          */
 /* ------------------------------------------------------------------ */
 
-function FloatingBadges() {
+const FloatingBadges = ({ badgeRightRef, badgeLeftRef }: {
+  badgeRightRef: React.RefObject<HTMLDivElement | null>
+  badgeLeftRef: React.RefObject<HTMLDivElement | null>
+}) => {
   return (
     <>
       <motion.div
+        ref={badgeRightRef}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.8, type: 'spring' }}
@@ -304,6 +349,7 @@ function FloatingBadges() {
       </motion.div>
 
       <motion.div
+        ref={badgeLeftRef}
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 2.0, type: 'spring' }}
@@ -325,11 +371,79 @@ function FloatingBadges() {
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null)
+  const mockupWrapperRef = useRef<HTMLDivElement>(null)
+  const badgeRightRef = useRef<HTMLDivElement>(null)
+  const badgeLeftRef = useRef<HTMLDivElement>(null)
+
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   })
   const mockupY = useTransform(scrollYProgress, [0, 1], [0, 90])
+
+  /* GSAP ScrollTrigger: 3D tilt on mockup + parallax on badges */
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* 3D perspective tilt on dashboard mockup */
+      if (mockupWrapperRef.current) {
+        gsap.set(mockupWrapperRef.current, {
+          transformPerspective: 1200,
+          transformOrigin: 'center center',
+        })
+
+        gsap.fromTo(
+          mockupWrapperRef.current,
+          {
+            rotateX: 0,
+            rotateY: 0,
+            scale: 1,
+          },
+          {
+            rotateX: -8,
+            rotateY: 3,
+            scale: 0.97,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: mockupWrapperRef.current,
+              start: 'top 60%',
+              end: 'bottom top',
+              scrub: 1.2,
+            },
+          }
+        )
+      }
+
+      /* Parallax: right badge moves faster (1.6x scroll speed) */
+      if (badgeRightRef.current) {
+        gsap.to(badgeRightRef.current, {
+          y: -120,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        })
+      }
+
+      /* Parallax: left badge moves slower (0.5x scroll speed) */
+      if (badgeLeftRef.current) {
+        gsap.to(badgeLeftRef.current, {
+          y: -40,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 0.8,
+          },
+        })
+      }
+    }, sectionRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <section
@@ -449,8 +563,10 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5, type: 'spring', stiffness: 80 }}
           className="relative max-w-4xl mx-auto"
         >
-          <FloatingBadges />
-          <RecoveryMockup />
+          <FloatingBadges badgeRightRef={badgeRightRef} badgeLeftRef={badgeLeftRef} />
+          <div ref={mockupWrapperRef}>
+            <RecoveryMockup />
+          </div>
           <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-emerald-500/15 blur-[60px] rounded-full" />
         </motion.div>
       </div>
