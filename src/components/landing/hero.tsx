@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
@@ -125,6 +126,22 @@ export function Hero() {
               </span>
             </div>
             <p className="text-zinc-500 text-sm">Payments Recovered</p>
+          </div>
+        </div>
+
+        {/* Dashboard Preview */}
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="relative rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-emerald-500/10">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
+            <Image
+              src="/images/dashboard.webp"
+              alt="FailedPay payment recovery dashboard"
+              width={1200}
+              height={800}
+              className="w-full h-auto"
+              priority
+            />
+            <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 z-20" />
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 
 import { useRef } from 'react'
 import {
@@ -267,6 +268,40 @@ export function Features() {
             <FeatureCard key={feature.title} feature={feature} index={i} />
           ))}
         </motion.div>
+
+        {/* Feature Screenshots */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]"
+          >
+            <Image
+              src="/images/feature-1.webp"
+              alt="Automated payment retry sequence dashboard"
+              width={600}
+              height={400}
+              className="w-full h-auto"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02]"
+          >
+            <Image
+              src="/images/feature-2.webp"
+              alt="Revenue recovery analytics and insights"
+              width={600}
+              height={400}
+              className="w-full h-auto"
+            />
+          </motion.div>
+        </div>
       </div>
     </section>
   )
