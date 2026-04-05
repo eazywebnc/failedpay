@@ -69,12 +69,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <a href="/privacy" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <a href="/terms" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
                   Terms of Service
                 </a>
               </li>
