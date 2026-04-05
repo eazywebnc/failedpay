@@ -63,7 +63,7 @@ export function Pricing() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-emerald-400 font-medium text-sm uppercase tracking-wider mb-3">
+          <p className="text-red-400 font-medium text-sm uppercase tracking-wider mb-3">
             Pricing
           </p>
           <h2 className="text-4xl font-bold">
@@ -82,13 +82,13 @@ export function Pricing() {
               key={tier.name}
               className={`relative rounded-2xl p-8 transition-all duration-300 ${
                 tier.popular
-                  ? 'glass border-emerald-500/30 glow-green scale-[1.02]'
+                  ? 'glass border-red-500/30 glow-green scale-[1.02]'
                   : 'glass hover:border-white/10'
               }`}
             >
               {/* Popular badge */}
               {tier.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-xs font-semibold">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-red-500 to-rose-500 text-xs font-semibold">
                   Most Popular
                 </div>
               )}
@@ -97,7 +97,7 @@ export function Pricing() {
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
                   {tier.icon && (
-                    <tier.icon className="w-5 h-5 text-emerald-500" />
+                    <tier.icon className="w-5 h-5 text-red-500" />
                   )}
                   <h3 className="text-xl font-semibold">{tier.name}</h3>
                 </div>
@@ -123,7 +123,7 @@ export function Pricing() {
                 href="/auth/login"
                 className={`block text-center py-3 rounded-xl font-medium text-sm transition-all ${
                   tier.popular
-                    ? 'bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:from-emerald-600 hover:to-green-700 shadow-lg shadow-emerald-500/20'
+                    ? 'bg-gradient-to-r from-red-500 to-rose-500 text-white hover:from-red-600 hover:to-rose-600 shadow-lg shadow-red-500/20'
                     : 'border border-white/10 text-zinc-300 hover:bg-white/5'
                 }`}
               >

@@ -6,13 +6,14 @@ export function CTA() {
     <section className="py-24 relative">
       <div className="max-w-4xl mx-auto px-6">
         <div className="relative glass rounded-3xl p-12 sm:p-16 text-center overflow-hidden">
-          {/* Background glow */}
+          {/* Background glow — red/crimson */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-emerald-500/10 rounded-full blur-[80px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-red-500/10 rounded-full blur-[80px]" />
+            <div className="absolute bottom-0 right-1/3 w-[300px] h-[200px] bg-emerald-500/8 rounded-full blur-[60px]" />
           </div>
 
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-sm font-medium mb-6">
               <ShieldCheck className="w-4 h-4" />
               Free to start, no credit card required
             </div>
@@ -29,7 +30,7 @@ export function CTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/auth/login"
-                className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold text-lg hover:from-emerald-600 hover:to-green-700 transition-all shadow-lg shadow-emerald-500/20"
+                className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-red-500 to-rose-500 text-white font-semibold text-lg hover:from-red-600 hover:to-rose-600 transition-all shadow-lg shadow-red-500/20"
               >
                 Get Started Free
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

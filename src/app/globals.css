@@ -47,12 +47,12 @@ html {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #10b981, #14b8a6, #2dd4bf);
+  background: linear-gradient(135deg, #ef4444, #f43f5e, #f97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glow-green {
-  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 40px rgba(239, 68, 68, 0.15);
 }

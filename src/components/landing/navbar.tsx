@@ -27,8 +27,8 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5">
           <div className="relative">
-            <Shield className="w-7 h-7 text-emerald-500" />
-            <CreditCard className="w-3.5 h-3.5 text-green-400 absolute -bottom-0.5 -right-0.5" />
+            <Shield className="w-7 h-7 text-red-500" />
+            <CreditCard className="w-3.5 h-3.5 text-rose-400 absolute -bottom-0.5 -right-0.5" />
           </div>
           <span className="text-lg font-bold">
             Failed<span className="gradient-text">Pay</span>
@@ -67,7 +67,7 @@ export function Navbar() {
           </Link>
           <Link
             href="/auth/login"
-            className="text-sm font-medium px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white hover:from-emerald-600 hover:to-green-700 transition-all"
+            className="text-sm font-medium px-5 py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-500 text-white hover:from-red-600 hover:to-rose-600 transition-all"
           >
             Start Free
           </Link>
@@ -100,7 +100,7 @@ export function Navbar() {
           </Link>
           <Link
             href="/auth/login"
-            className="block text-center text-sm font-medium px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white"
+            className="block text-center text-sm font-medium px-5 py-2 rounded-full bg-gradient-to-r from-red-500 to-rose-500 text-white"
           >
             Start Free
           </Link>

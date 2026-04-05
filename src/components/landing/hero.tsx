@@ -453,26 +453,27 @@ export function Hero() {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Radial glows — richer emerald-to-teal */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-emerald-500/8 rounded-full blur-[140px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-400/5 rounded-full blur-[80px]" />
-        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-emerald-600/4 rounded-full blur-[60px]" />
+        {/* Radial glows — red danger to green recovery */}
+        <div className="absolute top-1/4 left-1/3 w-[600px] h-[600px] bg-red-500/6 rounded-full blur-[140px]" />
+        <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-rose-500/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-emerald-500/8 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-orange-500/4 rounded-full blur-[80px]" />
 
-        {/* Diagonal stripe pattern */}
+        {/* Diagonal stripe pattern — crimson */}
         <div
-          className="absolute inset-0 opacity-[0.035]"
+          className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage:
-              'repeating-linear-gradient(135deg, transparent, transparent 40px, rgba(16,185,129,0.12) 40px, rgba(16,185,129,0.12) 41px, transparent 41px, transparent 80px)',
+              'repeating-linear-gradient(135deg, transparent, transparent 40px, rgba(239,68,68,0.15) 40px, rgba(239,68,68,0.15) 41px, transparent 41px, transparent 80px)',
           }}
         />
 
         {/* CSS grid pattern overlay */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(20,184,166,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20,184,166,.15) 1px, transparent 1px)',
+              'linear-gradient(rgba(239,68,68,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(239,68,68,.12) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -484,10 +485,10 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-emerald-400 text-sm font-medium mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/20 bg-red-500/5 text-red-400 text-sm font-medium mb-8"
           >
             <ShieldCheck className="w-4 h-4" />
-            Trusted by 500+ SaaS businesses
+            Recover up to 87% of failed payments
           </motion.div>
 
           <motion.h1
@@ -519,7 +520,7 @@ export function Hero() {
           >
             <Link
               href="/auth/login"
-              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-white font-semibold text-lg hover:from-emerald-600 hover:to-teal-500 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-teal-400/30"
+              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-red-500 to-rose-500 text-white font-semibold text-lg hover:from-red-600 hover:to-rose-600 transition-all shadow-lg shadow-red-500/25 hover:shadow-rose-500/30"
             >
               Start Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -10,7 +10,7 @@ import { Footer } from '@/components/landing/footer'
 
 export default function HomePage() {
   return (
-    <main className="relative min-h-screen bg-[#030805]">
+    <main className="relative min-h-screen bg-[#080305]">
       <AnimatedMeshBg />
       <Navbar />
       <Hero />
