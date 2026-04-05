@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 import {
   ArrowRight,
   TrendingUp,
@@ -581,6 +582,38 @@ export function Hero() {
             <RecoveryMockup />
           </div>
           <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-emerald-500/15 blur-[60px] rounded-full" />
+        </motion.div>
+
+        {/* Dashboard Preview */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: 'easeOut' }}
+          className="mt-20 max-w-5xl mx-auto"
+        >
+          <div
+            className="relative"
+            style={{ perspective: '1200px' }}
+          >
+            <div
+              className="relative transform transition-transform duration-700 hover:scale-[1.01]"
+              style={{ transform: 'rotateX(4deg) rotateY(-1deg)' }}
+            >
+              <div className="rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-emerald-500/10">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
+                <Image
+                  src="/images/dashboard.webp"
+                  alt="FailedPay Dashboard"
+                  width={1200}
+                  height={675}
+                  className="rounded-2xl border border-white/10 shadow-2xl shadow-black/50"
+                  priority
+                />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10 z-20" />
+              </div>
+            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-emerald-500/5 via-teal-500/5 to-cyan-500/5 rounded-3xl blur-xl -z-10" />
+          </div>
         </motion.div>
       </div>
     </section>
