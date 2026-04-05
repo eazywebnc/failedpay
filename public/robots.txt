@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://failedpay.eazyweb.nc/sitemap.xml
