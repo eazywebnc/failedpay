@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     description:
       'Stop losing revenue to failed payments. Automatic recovery for Stripe.',
   },
+  alternates: {
+    canonical: 'https://failedpay.eazyweb.nc',
+  },
 }
 
 const jsonLd = {
