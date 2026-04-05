@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://failedpay.eazyweb.nc'),
   title: 'FailedPay — Recover Failed Stripe Payments Automatically',
   description:
-    'FailedPay automatically recovers failed Stripe payments and reduces involuntary churn by 5-10%. Smart retries, email dunning, and AI-powered recovery for SaaS businesses.',
+    'FailedPay recovers failed Stripe payments and reduces involuntary churn by 5-10%. Smart retries, email dunning, and AI-powered recovery.',
   keywords: [
     'failed payments',
     'stripe recovery',
@@ -33,12 +33,14 @@ export const metadata: Metadata = {
     url: 'https://failedpay.eazyweb.nc',
     siteName: 'FailedPay',
     type: 'website',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FailedPay — Recover Failed Stripe Payments',
     description:
       'Stop losing revenue to failed payments. Automatic recovery for Stripe.',
+    images: ['/opengraph-image'],
   },
   alternates: {
     canonical: 'https://failedpay.eazyweb.nc',
