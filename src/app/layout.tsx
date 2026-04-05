@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     siteName: 'FailedPay',
     type: 'website',
     locale: 'en_US',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FailedPay — Recover Failed Stripe Payments Automatically' }],
+    images: [{ url: '/images/og-image.webp', width: 1200, height: 630, type: 'image/webp', alt: 'FailedPay — Recover Failed Stripe Payments Automatically' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FailedPay — Recover Failed Stripe Payments',
     description:
       'Stop losing revenue to failed payments. Automatic recovery for Stripe.',
-    images: ['/og-image.png'],
+    images: ['/images/og-image.webp'],
   },
   alternates: {
     canonical: 'https://failedpay.eazyweb.nc',
