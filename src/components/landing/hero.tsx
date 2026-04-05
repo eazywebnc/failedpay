@@ -452,13 +452,26 @@ export function Hero() {
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-emerald-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-emerald-400/3 rounded-full blur-[60px]" />
+        {/* Radial glows — richer emerald-to-teal */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-emerald-500/8 rounded-full blur-[140px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-teal-400/5 rounded-full blur-[80px]" />
+        <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-emerald-600/4 rounded-full blur-[60px]" />
+
+        {/* Diagonal stripe pattern */}
         <div
-          className="absolute inset-0 opacity-[0.02]"
+          className="absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage:
-              'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+              'repeating-linear-gradient(135deg, transparent, transparent 40px, rgba(16,185,129,0.12) 40px, rgba(16,185,129,0.12) 41px, transparent 41px, transparent 80px)',
+          }}
+        />
+
+        {/* CSS grid pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(20,184,166,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(20,184,166,.15) 1px, transparent 1px)',
             backgroundSize: '60px 60px',
           }}
         />
@@ -505,7 +518,7 @@ export function Hero() {
           >
             <Link
               href="/auth/login"
-              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold text-lg hover:from-emerald-600 hover:to-green-700 transition-all shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30"
+              className="group flex items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500 to-teal-400 text-white font-semibold text-lg hover:from-emerald-600 hover:to-teal-500 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-teal-400/30"
             >
               Start Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
