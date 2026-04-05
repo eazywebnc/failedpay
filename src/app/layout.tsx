@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     url: 'https://failedpay.eazyweb.nc',
     siteName: 'FailedPay',
     type: 'website',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'FailedPay — Recover Failed Stripe Payments',
     description:
       'Stop losing revenue to failed payments. Automatic recovery for Stripe.',
-    images: ['/opengraph-image'],
+    images: ['/og-image.png'],
   },
   alternates: {
     canonical: 'https://failedpay.eazyweb.nc',
