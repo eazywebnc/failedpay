@@ -49,6 +49,7 @@ export const metadata: Metadata = {
       'Stop losing revenue to failed payments. Automatic recovery for Stripe.',
     images: ['/images/og-image.webp'],
   },
+  robots: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   alternates: {
     canonical: 'https://failedpay.eazyweb.nc',
   },
@@ -56,23 +57,67 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'FailedPay',
-  applicationCategory: 'BusinessApplication',
-  operatingSystem: 'Web',
-  description:
-    'Automatically recover failed Stripe payments and reduce involuntary churn.',
-  url: 'https://failedpay.eazyweb.nc',
-  offers: [
-    { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' },
-    { '@type': 'Offer', price: '29', priceCurrency: 'USD', name: 'Pro' },
-    { '@type': 'Offer', price: '79', priceCurrency: 'USD', name: 'Business' },
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'FailedPay',
+      url: 'https://failedpay.eazyweb.nc',
+      publisher: {
+        '@type': 'Organization',
+        name: 'EazyWebNC',
+        url: 'https://eazyweb.nc',
+        logo: { '@type': 'ImageObject', url: 'https://eazyweb.nc/logo.png' },
+      },
+    },
+    {
+      '@type': 'SoftwareApplication',
+      name: 'FailedPay',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      description:
+        'Automatically recover failed Stripe payments and reduce involuntary churn.',
+      url: 'https://failedpay.eazyweb.nc',
+      offers: [
+        { '@type': 'Offer', price: '0', priceCurrency: 'USD', name: 'Free' },
+        { '@type': 'Offer', price: '29', priceCurrency: 'USD', name: 'Pro' },
+        { '@type': 'Offer', price: '79', priceCurrency: 'USD', name: 'Business' },
+      ],
+      creator: {
+        '@type': 'Organization',
+        name: 'EazyWebNC',
+        url: 'https://eazyweb.nc',
+      },
+    },
+    {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'What is FailedPay?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'FailedPay is an automated payment recovery tool for Stripe. It detects failed payments, retries them at optimal times, and sends smart dunning emails to recover lost revenue.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How much revenue can FailedPay recover?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'FailedPay typically recovers 5-10% of revenue lost to involuntary churn through smart retry logic and AI-powered dunning campaigns.',
+          },
+        },
+        {
+          '@type': 'Question',
+          name: 'How does FailedPay integrate with Stripe?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Connect your Stripe account in one click. FailedPay automatically monitors your payments, detects failures, and begins recovery — no code changes required.',
+          },
+        },
+      ],
+    },
   ],
-  creator: {
-    '@type': 'Organization',
-    name: 'EazyWebNC',
-    url: 'https://eazyweb.nc',
-  },
 }
 
 export default function RootLayout({

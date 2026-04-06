@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Shield, CreditCard } from 'lucide-react'
+import { EcosystemFooter } from './ecosystem-footer'
 
 export function Footer() {
   return (
@@ -89,6 +90,8 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        <EcosystemFooter />
 
         <div className="border-t border-white/5 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-zinc-600 text-sm">
