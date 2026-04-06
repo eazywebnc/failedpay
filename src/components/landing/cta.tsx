@@ -3,7 +3,7 @@ import { ArrowRight, ShieldCheck } from 'lucide-react'
 
 export function CTA() {
   return (
-    <section className="py-24 relative">
+    <section className="py-24 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
         <div className="relative glass rounded-3xl p-12 sm:p-16 text-center overflow-hidden">
           {/* Background glow — red/crimson */}

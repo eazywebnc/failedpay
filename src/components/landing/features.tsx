@@ -236,7 +236,7 @@ export function Features() {
   const gridY = useParallax(scrollYProgress)
 
   return (
-    <section id="features" className="py-24 relative" ref={sectionRef}>
+    <section id="features" className="py-24 relative overflow-hidden" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div
